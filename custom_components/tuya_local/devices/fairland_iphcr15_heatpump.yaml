@@ -1,4 +1,9 @@
-name: Fairland InverterPlus pool heatpump
+name: Pool heatpump
+products:
+  - id: qrlLaHWwIsZsV31f
+    name: Phalén Calidi XP
+    # - id: UNKNOWN
+    #   name: Fairland InverterPlus
 primary_entity:
   entity: climate
   dps:
@@ -49,10 +54,10 @@ primary_entity:
           conditions:
             - dps_val: false
               range:
-                min: 60
+                min: 55
                 max: 115
       range:
-        min: 18
+        min: 12
         max: 45
     - id: 107
       type: integer

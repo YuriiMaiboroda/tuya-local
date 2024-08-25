@@ -3,7 +3,7 @@ from homeassistant.components.fan import (
     DIRECTION_REVERSE,
     FanEntityFeature,
 )
-from homeassistant.components.light import ATTR_BRIGHTNESS, ATTR_COLOR_TEMP, ColorMode
+from homeassistant.components.light import ColorMode
 
 from ..const import ARLEC_FAN_LIGHT_PAYLOAD
 from ..helpers import assert_device_properties_set
@@ -35,10 +35,10 @@ class TestArlecFan(SwitchableTests, BasicSelectTests, TuyaDeviceTestCase):
             TIMER_DPS,
             self.entities["select_timer"],
             {
-                "off": "Off",
-                "2hour": "2 hours",
-                "4hour": "4 hours",
-                "8hour": "8 hours",
+                "off": "cancel",
+                "2hour": "2h",
+                "4hour": "4h",
+                "8hour": "8h",
             },
         )
         self.mark_secondary(["select_timer"])
@@ -132,7 +132,7 @@ class TestArlecFan(SwitchableTests, BasicSelectTests, TuyaDeviceTestCase):
 
     def test_light_brightness(self):
         self.dps[BRIGHTNESS_DPS] = 50
-        self.assertAlmostEqual(self.light.brightness, 128, 0)
+        self.assertAlmostEqual(self.light.brightness, 129, 0)
 
     def test_light_color_temp(self):
         self.dps[COLORTEMP_DPS] = 70

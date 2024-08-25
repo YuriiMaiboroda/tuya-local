@@ -42,7 +42,7 @@ class TestVorkVK6267AWPurifier(
         self.setUpSwitchable(SWITCH_DPS, self.subject)
         self.setUpBasicBinarySensor(
             ERROR_DPS,
-            self.entities.get("binary_sensor_error"),
+            self.entities.get("binary_sensor_problem"),
             device_class=BinarySensorDeviceClass.PROBLEM,
             testdata=(1, 0),
         )
@@ -51,9 +51,9 @@ class TestVorkVK6267AWPurifier(
             TIMER_DPS,
             self.entities.get("select_timer"),
             {
-                "cancel": "off",
-                "1h": "1 hour",
-                "2h": "2 hours",
+                "cancel": "cancel",
+                "1h": "1h",
+                "2h": "2h",
             },
         )
         self.setUpBasicButton(
@@ -72,7 +72,7 @@ class TestVorkVK6267AWPurifier(
                 },
                 {
                     "dps": COUNTDOWN_DPS,
-                    "name": "sensor_timer",
+                    "name": "sensor_time_remaining",
                     "unit": UnitOfTime.MINUTES,
                     "device_class": SensorDeviceClass.DURATION,
                 },
@@ -85,13 +85,13 @@ class TestVorkVK6267AWPurifier(
         )
         self.mark_secondary(
             [
-                "binary_sensor_error",
+                "binary_sensor_problem",
                 "button_filter_reset",
                 "light",
                 "select_timer",
                 "sensor_air_quality",
                 "sensor_filter",
-                "sensor_timer",
+                "sensor_time_remaining",
             ]
         )
 

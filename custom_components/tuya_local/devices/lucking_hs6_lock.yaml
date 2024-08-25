@@ -204,15 +204,16 @@ secondary_entities:
         type: string
         name: doorbell_song_kit
         optional: true
-  - entity: binary_sensor
-    name: Doorbell
-    class: sound
+  - entity: event
+    class: doorbell
     category: diagnostic
     dps:
       - id: 101
         type: boolean
-        name: sensor
         optional: true
+        name: event
         mapping:
-          - dps_val: null
-            value: false
+          - dps_val: true
+            value: ring
+          - dps_val: false
+            value: null

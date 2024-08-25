@@ -1,6 +1,7 @@
 """
 Tests for translation files.
 """
+
 from fnmatch import fnmatch
 from os import walk
 from os.path import dirname, join
@@ -51,10 +52,6 @@ def get_devices():
 
 # @pytest.mark.parametrize("device", get_devices())
 # def test_device_covered(device):
-#     entity = device.primary_entity
-#     if entity.deprecated:
-#         subtest_entity_covered(entity)
-
-#     for entity in device.secondary_entities():
+#     for entity in device.all_entities():
 #         if entity.deprecated:
 #             subtest_entity_covered(entity)
