@@ -1,7 +1,8 @@
 name: Air purifier
 products:
   - id: bff126249136f505
-    name: Stadler Form Roger
+    manufacturer: Stadler Form
+    model: Roger
 entities:
   - entity: fan
     dps:
@@ -69,8 +70,7 @@ entities:
         type: integer
         name: sensor
   - entity: sensor
-    name: Air quality
-    icon: "mdi:air-filter"
+    translation_key: air_quality
     dps:
       - id: 21
         type: string

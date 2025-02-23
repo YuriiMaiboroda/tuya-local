@@ -1,9 +1,11 @@
 name: Air purifier
 products:
   - id: kik7qavg2baebtk9
-    name: Soleusair KJ1000F A10
+    manufacturer: Soleusair
+    model: KJ1000F A10
   - id: 5xrkvysk7z6xrjum
-    name: Soleusair KJ760F A02
+    manufacturer: Soleusair
+    model: KJ760F A02
 entities:
   - entity: fan
     translation_only_key: fan_with_presets
@@ -84,8 +86,7 @@ entities:
         optional: true
         unit: ppb
   - entity: sensor
-    name: Air quality
-    icon: "mdi:approximately-equal"
+    translation_key: air_quality
     class: enum
     dps:
       - id: 21
@@ -93,11 +94,11 @@ entities:
         name: sensor
         mapping:
           - dps_val: great
-            value: great
+            value: excellent
           - dps_val: good
             value: good
           - dps_val: medium
-            value: medium
+            value: poor
           - dps_val: severe
             value: severe
   - entity: sensor

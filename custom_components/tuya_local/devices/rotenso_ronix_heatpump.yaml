@@ -1,7 +1,8 @@
 name: Air conditioner
 products:
   - id: hw50w7qvxluhslkk
-    name: Rotenso Roni X
+    manufacturer: Rotenso
+    model: Roni X
 entities:
   - entity: climate
     translation_only_key: aircon_extra
@@ -230,6 +231,14 @@ entities:
         type: hex
         name: switch
         mask: "0001"
+  - entity: switch
+    translation_key: anti_frost
+    category: config
+    dps:
+      - id: 123
+        type: hex
+        name: switch
+        mask: "1000"
   - entity: binary_sensor
     class: problem
     category: diagnostic

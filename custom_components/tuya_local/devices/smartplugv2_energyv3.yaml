@@ -1,15 +1,18 @@
 name: Energy monitoring smartplug
 products:
   - id: 2iepauebcvo74ujc
-    name: Aubess 20A
+    manufacturer: Aubess
+    model: 20A
   - id: wrz6vzch8htux2zp
-    name: Elivco CB2S-16DL
+    manufacturer: Elivco
+    model: CB2S-16DL
   - id: 3lbgj7cu27nsmh0w
-    name: AT-Q-SY2-JWT
+    model: AT-Q-SY2-JWT
   - id: cipuwutzfuqk3iru
-    name: UNSH SMKG-KNL
+    model: UNSH SMKG-KNL
   - id: azpywu5zfg5wyzpn
-    name: EARU 1P Breaker
+    manufacturer: EARU
+    model: 1P Breaker
 entities:
   - entity: switch
     class: outlet
@@ -19,6 +22,7 @@ entities:
         name: switch
       - id: 21
         type: integer
+        optional: true
         name: test_bit
       - id: 42
         type: base64
@@ -49,6 +53,7 @@ entities:
             step: 60
   - entity: sensor
     category: diagnostic
+    hidden: true
     name: Energy
     dps:
       - id: 17
@@ -56,6 +61,7 @@ entities:
         type: integer
         unit: Wh
         optional: true
+        class: measurement
       - id: 25
         type: integer
         name: calibration
@@ -69,6 +75,7 @@ entities:
         name: sensor
         type: integer
         class: measurement
+        optional: true
         force: true
         unit: mA
       - id: 23
@@ -82,6 +89,7 @@ entities:
         name: sensor
         type: integer
         class: measurement
+        optional: true
         force: true
         unit: W
         mapping:
@@ -104,6 +112,7 @@ entities:
         name: sensor
         type: integer
         class: measurement
+        optional: true
         force: true
         unit: V
         mapping:
@@ -142,7 +151,16 @@ entities:
   - entity: lock
     translation_key: child_lock
     category: config
+    hidden: unavailable
     dps:
+      - id: 41
+        type: boolean
+        optional: true
+        name: available
+        mapping:
+          - dps_val: null
+            value: false
+          - value: true
       - id: 41
         type: boolean
         name: lock
@@ -167,15 +185,33 @@ entities:
   - entity: switch
     name: Overcharge protection
     category: config
+    hidden: unavailable
     dps:
+      - id: 39
+        type: boolean
+        optional: true
+        name: available
+        mapping:
+          - dps_val: null
+            value: false
+          - value: true
       - id: 39
         type: boolean
         name: switch
         optional: true
   - entity: sensor
     class: temperature
+    hidden: unavailable
     category: diagnostic
     dps:
+      - id: 47
+        type: integer
+        optional: true
+        name: available
+        mapping:
+          - dps_val: null
+            value: false
+          - value: true
       - id: 47
         type: integer
         optional: true
