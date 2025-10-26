@@ -4,21 +4,21 @@
         "step": {
             "user": {
                 "title": "Konfigurieren Sie Ihr Tuya Local-Gerät",
-                "description": "Geräte können entweder manuell oder cloudgestützt mit Hilfe der Smart Life App hinzugefügt werden.",
+                "description": "Geräte können entweder manuell oder cloudgestützt mit Hilfe der SmartLife App hinzugefügt werden.",
                 "data": {
                     "setup_mode": "Setup-Auswahl:"
                 }
             },
             "cloud": {
                 "title": "Melden Sie sich bei Tuya an",
-                "description": "Geben Sie Ihren Smart Life- oder Tuya Smart-Benutzercode ein.\n\nSie finden diesen Code in der Smart Life-App oder Tuya Smart-App im Bildschirm **Einstellungen** > **Konto und Sicherheit** und geben Sie den dort angezeigten Code ein ",
+                "description": "Geben Sie Ihren SmartLife oder Tuya Benutzercode ein.\n\nSie finden diesen Code in der SmartLife App oder Tuya App im Bildschirm **Einstellungen** > **Konto und Sicherheit** und geben Sie den dort angezeigten Code ein ",
                 "data": {
                     "user_code": "Benutzercode:"
                 }
             },
             "scan": {
                 "title": "Schließen Sie die Anmeldung ab",
-                "description": "Verwenden Sie die Smart Life-App oder die Tuya Smart-App"
+                "description": "Verwenden Sie die SmartLife App oder die Tuya App"
             },
             "choose_device": {
                 "title": "Wählen Sie das hinzuzufügende Gerät aus",
@@ -73,8 +73,9 @@
     "selector": {
         "setup_mode": {
             "options": {
-                "cloud": "Cloud-gestützte Geräteeinrichtung von Smart Life.",
-                "manual": "Geben Sie manuell Informationen zur Geräteverbindung an."
+                "cloud": "Cloud-gestützte Geräteeinrichtung von SmartLife.",
+                "manual": "Geben Sie manuell Informationen zur Geräteverbindung an.",
+                "cloud_fresh_login": "Cloud-gestützte Geräteeinrichtung von SmartLife mit einem frischen Login."
             }
         }
     },
@@ -181,7 +182,24 @@
                             "top": "Oben",
                             "middle": "Mitte",
                             "down": "Unten",
-                            "downmost": "Ganz unten"
+                            "downmost": "Ganz unten",
+                            "upper_half": "Obere Hälfte",
+                            "lower_half": "Untere Hälfte",
+                            "surround": "Umgebung"
+                        }
+                    },
+                    "swing_horizontal_mode": {
+                        "state": {
+                            "leftmost": "Ganz links",
+                            "left": "Links",
+                            "center": "Mitte",
+                            "right": "Rechts",
+                            "rightmost": "Ganz rechts",
+                            "left_swing": "Links schwingen",
+                            "right_swing": "Rechts schwingen",
+                            "center_swing": "Mitte schwingen",
+                            "surround": "Umgebung",
+                            "direct": "Direkt"
                         }
                     }
                 }
@@ -218,6 +236,7 @@
                 }
             },
             "swing_as_powerlevel": {
+                "name": "Heizung",
                 "state_attributes": {
                     "swing_mode": {
                         "name": "Heizstufe",
@@ -285,7 +304,8 @@
                             "low_steaming": "Niedriges Dämpfen",
                             "medium_steaming": "Mittleres Dämpfen",
                             "high_steaming": "Hohes Dämpfen"
-                        }                    }
+                        }
+                    }
                 }
             }
         },
@@ -362,7 +382,10 @@
                             "eco": "Eco",
                             "anti-condensation": "Anti-Kondensation",
                             "extractor": "Abluft",
-                            "heat_recovery": "Wärmerückgewinnung"
+                            "heat_recovery": "Wärmerückgewinnung",
+                            "timer": "Timer",
+                            "on": "An",
+                            "off": "Aus"
                         }
                     }
                 }
@@ -405,6 +428,9 @@
             },
             "timer_x": {
                 "name": "Timer {x}"
+            },
+            "sensor_threshold": {
+                "name": "{sensor} Schwellenwert"
             }
         },
         "select": {
@@ -418,12 +444,47 @@
                     "gbp": "GBP"
                 }
             },
+            "heat_pump_mode": {
+                "name": "Wärmepumpenmodus",
+                "state": {
+                    "heat": "Heizen",
+                    "cool": "Kühlen",
+                    "auto": "Auto",
+                    "floor_heat": "Bodenheizung",
+                    "off": "Aus",
+                    "hotwater": "Warmwasser",
+                    "hotwater_cool": "Warmwasser Kühlen",
+                    "hotwater_heat": "Warmwasser Heizen",
+                    "hotwater_auto": "Warmwasser Auto",
+                    "hotwater_floor_heat": "Warmwasser Bodenheizung"
+                }
+            },
             "initial_state": {
                 "name": "Startzustand",
                 "state": {
                     "off": "Aus",
                     "on": "An",
                     "memory": "Speicher"
+                }
+            },
+            "kettle_mode": {
+                "name": "Kesselmodus",
+                "state": {
+                    "off": "Aus",
+                    "heat": "Heizen",
+                    "boil": "Kochen",
+                    "quick_heat": "Schnellheizen",
+                    "quick_boil": "Schnellkochen",
+                    "keep_warm": "Warmhalten",
+                    "custom": "Benutzerdefiniert",
+                    "dechlorinate": "Entchlorieren",
+                    "black_tea": "Schwarzer Tee",
+                    "green_tea": "Grüner Tee",
+                    "coffee": "Kaffee",
+                    "honey_water": "Honigwasser",
+                    "infant_formula": "Babynahrung",
+                    "white_tea": "Weißer Tee",
+                    "oolong_tea": "Oolong-Tee"
                 }
             },
             "language": {
@@ -444,6 +505,15 @@
                     "turkish": "Türkçe"
                 }
             },
+            "light_mode": {
+                "name": "Lichtmodus",
+                "state": {
+                    "off": "Aus",
+                    "on": "An",
+                    "state": "Zustand",
+                    "locator": "Locator"
+                }
+            },
             "mopping": {
                 "name": "Wischen",
                 "state": {
@@ -451,7 +521,8 @@
                     "auto": "Automatisch",
                     "low": "Niedrig",
                     "medium": "Mittel",
-                    "high": "Hoch"
+                    "high": "Hoch",
+                    "very_high": "Sehr hoch"
                 }
             },
             "recipe": {
@@ -548,7 +619,14 @@
                     "24h": "24 Stunden",
                     "36h": "36 Stunden",
                     "48h": "48 Stunden",
-                    "72h": "72 Stunden"
+                    "72h": "72 Stunden",
+                    "1d": "1 Tag",
+                    "2d": "2 Tage",
+                    "3d": "3 Tage",
+                    "4d": "4 Tage",
+                    "5d": "5 Tage",
+                    "6d": "6 Tage",
+                    "7d": "7 Tage"
                 }
             },
             "temperature_unit": {
@@ -556,6 +634,14 @@
                 "state": {
                     "celsius": "Celsius",
                     "fahrenheit": "Fahrenheit"
+                }
+            },
+            "breaker_trigger_action": {
+                "name": "{trigger} Aktion",
+                "state": {
+                    "ignore": "Ignorieren",
+                    "alarm": "Alarm",
+                    "trip_breaker": "Leistungsschalter auslösen"
                 }
             },
             "oven_built_in_recipe": {
@@ -603,7 +689,8 @@
                     "good": "Gut",
                     "moderate": "Mäßig",
                     "poor": "Schlecht",
-                    "severe": "Schwer"
+                    "severe": "Schwer",
+                    "danger": "Gefahr"
                 }
             },
             "status": {
@@ -613,6 +700,7 @@
                     "plugged_in": "Angeschlossen",
                     "fault_unplugged": "Fehler (nicht angeschlossen)",
                     "charging": "Laden",
+                    "discharging": "Entladen",
                     "waiting": "Warten",
                     "charged": "Geladen",
                     "fault": "Fehler",
@@ -631,6 +719,7 @@
                     "manual": "Manuell",
                     "rain_delay": "Regenverzögerung",
                     "off": "Aus",
+                    "on": "An",
                     "cooking": "Kochen",
                     "done": "Fertig",
                     "door_open": "Tür offen",
@@ -688,6 +777,9 @@
             "time_remaining": {
                 "name": "Verbleibende Zeit"
             },
+            "time_remaining_x": {
+                "name": "Verbleibende Zeit {x}"
+            },
             "cooking_status": {
                 "name": "Kochstatus",
                 "state": {
@@ -735,6 +827,13 @@
             "anti_frost": {
                 "name": "Anti-Frost"
             },
+            "breaker": {
+                "name": "Leistungsschalter",
+                "state": {
+                    "off": "Offen",
+                    "on": "Geschlossen"
+                }
+            },
             "evaporator_cleaning": {
                 "name": "Verdampferreinigung"
             },
@@ -765,38 +864,25 @@
                 "name": "Szene"
             }
         },
+        "time": {
+            "timer": {
+                "name": "Timer"
+            },
+            "timer_x": {
+                "name": "Timer {x}"
+            }
+        },
+        "valve": {
+            "valve_x": {
+                "name": "Ventil {x}"
+            }
+        },
         "water_heater": {
             "water_air": {
-                "name": "Wasserkocher",
-                "state_attributes": {
-                    "operation_mode": {
-                        "state": {
-                            "heat": "Heizen",
-                            "cool": "Kühlen",
-                            "auto": "Auto",
-                            "off": "Aus",
-                            "hotwater": "Warmwasser",
-                            "hotwater_cool": "Warmwasser Kühlen",
-                            "hotwater_heat": "Warmwasser Heizen",
-                            "hotwater_auto": "Warmwasser Auto"
-                        }
-                    }
-                }
+                "name": "Wasserkocher"
             },
             "kettle": {
-                "name": "Wasserkocher",
-                "state_attributes": {
-                    "operation_mode": {
-                        "state": {
-                            "off": "Aus",
-                            "heat": "Heizen",
-                            "boil": "Kochen",
-                            "quick_heat": "Schnellheizen",
-                            "quick_boil": "Schnellkochen",
-                            "keep_warm": "Warmhalten"
-                        }
-                    }
-                }
+                "name": "Wasserkocher"
             }
         }
     }
